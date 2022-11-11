@@ -27,7 +27,7 @@ import { compareAddresses } from '@/utils/address.js';
 // import store from '@/store';
 // import { SET_ACCOUNT, SET_CHAIN_ID } from '@/plugins/metamask/store.js';
 
-const OPERA_CHAIN_ID = parseInt(appConfig.chainId, 16);
+const HARMONY_CHAIN_ID = parseInt(appConfig.chainId, 16);
 export let wallet = null;
 
 implementsWalletInterface(Metamask);
@@ -108,7 +108,7 @@ export class Wallet {
      * @return {boolean}
      */
     isCorrectChainId() {
-        return this.wallet ? this.wallet.getChainId() === OPERA_CHAIN_ID : false;
+        return this.wallet ? this.wallet.getChainId() === HARMONY_CHAIN_ID : false;
     }
 
     /**
@@ -173,7 +173,6 @@ export class Wallet {
     async setWallet(walletName, pick) {
         const wallets = this._wallets;
         let wallet = null;
-
         if (walletName in wallets) {
             try {
                 wallet = wallets[walletName];
@@ -191,6 +190,7 @@ export class Wallet {
                 }
 
                 this._setChainId(wallet.getChainId());
+
                 this._setAccount(account);
 
                 this.wallet = wallet;

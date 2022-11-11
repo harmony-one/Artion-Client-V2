@@ -1,5 +1,5 @@
-import gql from 'graphql-tag';
-import { gqlQuery } from '@/utils/gql.js';
+// import gql from 'graphql-tag';
+// import { gqlQuery } from '@/utils/gql.js';
 
 let CONTRACTS = {
     marketplace: '',
@@ -9,30 +9,29 @@ let CONTRACTS = {
 let contractsLoaded = false;
 
 // TEMPORARY!
-/*
 async function fetchContracts() {
     return {
-        marketplace: '0xa06aecbb8CD9328667f8E05f288e5b3ac1CFf852',
-        auctionHall: '0x951Cc69504d39b3eDb155CA99f555E47E044c2F1',
+        marketplace: process.env.VUE_APP_HARMONY_MARKETPLACE_CONTRACT_ADDRESS, //'0xa06aecbb8CD9328667f8E05f288e5b3ac1CFf852',
+        auctionHall: process.env.VUE_APP_HARMONY_AUCTION_CONTRACT_ADDRESS, // '0x951Cc69504d39b3eDb155CA99f555E47E044c2F1',
     };
 }
-*/
 
-async function fetchContracts() {
-    const query = {
-        query: gql`
-            query GetContracts {
-                contracts {
-                    marketplace
-                    auctionHall
-                }
-            }
-        `,
-        fetchPolicy: 'network-only',
-    };
 
-    return gqlQuery(query, 'contracts');
-}
+// async function fetchContracts() {
+//     const query = {
+//         query: gql`
+//             query GetContracts {
+//                 contracts {
+//                     marketplace
+//                     auctionHall
+//                 }
+//             }
+//         `,
+//         fetchPolicy: 'network-only',
+//     };
+
+//     return gqlQuery(query, 'contracts');
+// }
 
 export async function getContractAddress(code) {
     if (!contractsLoaded) {

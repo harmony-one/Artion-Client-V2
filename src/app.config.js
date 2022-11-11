@@ -103,14 +103,14 @@ let appConfig = {
     // use hash in address
     routerHashMode: false,
     // Opera chain id
-    chainId: '0xfa',
+    chainId: '1666600000', //'0xfa',
     // JSON-RPC endpointAdd
     // rpc: 'https://rpcapi.fantom.network/',
-    rpc: 'https://rpc.ftm.tools/',
+    rpc: 'https://api.harmony.one', //'https://rpc.ftm.tools/',
     // used in links pointing to fantom explorer
-    explorerUrl: 'https://ftmscan.com/',
+    explorerUrl: 'https://explorer.harmony.one/', //'https://ftmscan.com/',
     // used in links pointing to validators
-    explorerUrl2: 'https://explorer.fantom.network/',
+    explorerUrl2: 'https://explorer.harmony.one/', // 'https://explorer.fantom.network/',
     // default options for production build
     build: {
         // output dir for production build

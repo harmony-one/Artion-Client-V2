@@ -7,13 +7,13 @@ import web3Utils from 'web3-utils';
 const DEFAULT_GAS_LIMIT = '0x2dc6c0';
 
 // ZERO_AMOUNT represents zero amount transferred on some calls.
-const ZERO_AMOUNT = '0x0';
+const ZERO_AMOUNT = process.env.UE_APP_ZERO_AMOUNT;
 
-// OPERA_CHAIN_ID is the chain id used by Fantom Opera blockchain.
-const OPERA_CHAIN_ID = '0xfa';
+// HARMONY_CHAIN_ID is the chain id used by Fantom Opera blockchain.
+const HARMONY_CHAIN_ID = process.env.VUE_APP_HARMONY_CHAIN_ID;
 
 // TESTNET_CHAIN_ID is the chain id used by Fantom Opera test net.
-const TESTNET_CHAIN_ID = '0xfa2';
+const TESTNET_CHAIN_ID = process.env.VUE_APP_TESTNET_CHAIN_ID;
 
 /**
  * defiWrapFtm creates a contract call transaction to wrap given amount
@@ -52,7 +52,7 @@ function defiWrapFtm(erc20Address, amount) {
             },
             []
         ),
-        chainId: OPERA_CHAIN_ID,
+        chainId: HARMONY_CHAIN_ID,
     };
 }
 
@@ -99,7 +99,7 @@ function defiUnwrapFtm(erc20Address, amount) {
             },
             [amount]
         ),
-        chainId: OPERA_CHAIN_ID,
+        chainId: HARMONY_CHAIN_ID,
     };
 }
 
@@ -107,6 +107,6 @@ function defiUnwrapFtm(erc20Address, amount) {
 export default {
     defiWrapFtm,
     defiUnwrapFtm,
-    OPERA_CHAIN_ID,
+    HARMONY_CHAIN_ID,
     TESTNET_CHAIN_ID,
 };

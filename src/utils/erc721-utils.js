@@ -1,11 +1,11 @@
 // import needed libs
 import Web3 from 'web3';
 // ZERO_AMOUNT represents zero amount transferred on some calls.
-const ZERO_AMOUNT = '0x0';
-// OPERA_CHAIN_ID is the chain id used by Fantom Opera blockchain.
-const OPERA_CHAIN_ID = '0xfa';
+const ZERO_AMOUNT = process.env.UE_APP_ZERO_AMOUNT;
+// HARMONY_CHAIN_ID is the chain id used by Fantom Opera blockchain.
+const HARMONY_CHAIN_ID = process.env.VUE_APP_HARMONY_CHAIN_ID;
 // TESTNET_CHAIN_ID is the chain id used by Fantom Opera test net.
-const TESTNET_CHAIN_ID = '0xfa2';
+const TESTNET_CHAIN_ID = process.env.VUE_APP_TESTNET_CHAIN_ID;
 /**
  * erc721Approve creates a transaction for setting ERC-721 token approval, which allows
  * approved party to transfer the specified NFT token of the approving owner.
@@ -43,7 +43,7 @@ function erc721Approve(erc721Address, approveTo, tokenId) {
             },
             [approveTo, tokenId]
         ),
-        chainId: OPERA_CHAIN_ID,
+        chainId: HARMONY_CHAIN_ID,
     };
 }
 
@@ -88,7 +88,7 @@ function erc721TransferFrom(erc721Address, transferFrom, transferTo, tokenId) {
             },
             [transferFrom, transferTo, tokenId]
         ),
-        chainId: OPERA_CHAIN_ID,
+        chainId: HARMONY_CHAIN_ID,
     };
 }
 
@@ -96,6 +96,6 @@ function erc721TransferFrom(erc721Address, transferFrom, transferTo, tokenId) {
 export default {
     erc721Approve,
     erc721TransferFrom,
-    OPERA_CHAIN_ID,
+    HARMONY_CHAIN_ID,
     TESTNET_CHAIN_ID,
 };

@@ -2,13 +2,13 @@
 import Web3 from 'web3';
 
 // ZERO_AMOUNT represents zero amount transferred on some calls.
-const ZERO_AMOUNT = '0x0';
+const ZERO_AMOUNT = process.env.UE_APP_ZERO_AMOUNT;
 
-// OPERA_CHAIN_ID is the chain id used by Fantom Opera blockchain.
-const OPERA_CHAIN_ID = '0xfa';
+// HARMONY_CHAIN_ID is the chain id used by Fantom Opera blockchain.
+const HARMONY_CHAIN_ID = process.env.VUE_APP_HARMONY_CHAIN_ID;
 
 // TESTNET_CHAIN_ID is the chain id used by Fantom Opera test net.
-const TESTNET_CHAIN_ID = '0xfa2';
+const TESTNET_CHAIN_ID = process.env.VUE_APP_TESTNET_CHAIN_ID;
 
 /**
  * erc20IncreaseAllowanceTx creates a transaction for increasing Allowance by the given
@@ -56,7 +56,7 @@ function erc20IncreaseAllowanceTx(erc20Address, delegatedToAddress, addAmount) {
             },
             [delegatedToAddress, addAmount]
         ),
-        chainId: OPERA_CHAIN_ID,
+        chainId: HARMONY_CHAIN_ID,
     };
 }
 
@@ -102,7 +102,7 @@ function erc20ApproveTx(tokenAddress, delegatedToAddress, addAmount) {
             },
             [delegatedToAddress, addAmount]
         ),
-        chainId: OPERA_CHAIN_ID,
+        chainId: HARMONY_CHAIN_ID,
     };
 }
 
@@ -110,6 +110,6 @@ function erc20ApproveTx(tokenAddress, delegatedToAddress, addAmount) {
 export default {
     erc20IncreaseAllowanceTx,
     erc20ApproveTx,
-    OPERA_CHAIN_ID,
+    HARMONY_CHAIN_ID,
     TESTNET_CHAIN_ID,
 };
