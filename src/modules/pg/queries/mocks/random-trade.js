@@ -7,7 +7,7 @@ export async function getRandomTrade() {
         tradeEnds: '2021-10-23T16:00:00+02:00',
         tokensAvailable: '0x0',
         totalTokens: '0x12f939c99edab80000', // 350
-        payTokens: ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83'],
+        payTokens: [process.env.VUE_APP_HARMONY_WRAPPED_ONE_CONTRACT_ADDRESS], // ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83'],
     };
 }
 

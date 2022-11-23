@@ -23,7 +23,8 @@ const PAY_TOKEN_IMAGES = {
     dai: '/img/pay-tokens/DAI.png',
 };
 
-export const WFTMContract = '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83';
+// FEGLOFF CHANGE 
+export const WFTMContract = process.env.VUE_APP_HARMONY_WRAPPED_ONE_CONTRACT_ADDRESS; //'0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83';
 
 let PT = [];
 
@@ -52,13 +53,14 @@ function getTokenFractionDigits(token) {
 async function fetchPayTokens() {
     const pt = await getPayTokens();
     const payTokens = [];
-
+    console.log('pay-tokens fetchPayTokens', pt);
     pt.forEach(t => {
         const symbolLC = t.symbol.toLowerCase();
         const payToken = {
             address: t.contract,
             // name: t.name,
-            label: t.symbol === 'WFTM' ? 'wFTM' : t.symbol,
+            label: t.symbol === 'WONE' ? 'wONE' : t.symbol,
+            //label: t.symbol === 'WFTM' ? 'wFTM' : t.symbol,
             img: PAY_TOKEN_IMAGES[symbolLC] || '',
             decimals: t.decimals,
             price: bFromTokenValue(t.price, 6).toNumber(),

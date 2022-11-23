@@ -87,10 +87,18 @@ const TOKENS = [
 
 const PAY_TOKENS = [
     {
+        address: process.env.VUE_APP_HARMONY_WRAPPED_ONE_CONTRACT_ADDRESS,
+        label: 'wONE',
+        img: '/img/WFTM.png',
+        tokenPrice: '0x3e8',
+        decimals: 18,
+        value: 'wone',
+    },
+    {
         address: '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
         label: 'wFTM',
         img: 'img/WFTM.png',
-        tokenPrice: '0x56bc75e2d63100000',
+        tokenPrice: '3e80x56bc75e2d63100000',
         // price: 2.308624,
         // priceDecimals: 18,
         decimals: 18,

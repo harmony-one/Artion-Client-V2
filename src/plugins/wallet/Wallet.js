@@ -299,7 +299,8 @@ export class Wallet {
             'gasPrice',
             fantomApolloClient
         );
-
+        // FEGLOFF CHANGE
+        console.log('getGasPrice - Wallet.js',gasPrice);
         // gasPrice * 1.2
         gasPrice = toHex(toBigNumber(gasPrice).multipliedBy(1.2));
 

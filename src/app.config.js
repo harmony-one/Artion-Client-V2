@@ -20,20 +20,31 @@ let appConfig = {
             // list of providers. if one of them is unavailable, another is randomly picked
             providers: [
                 {
-                    http: 'https://artion-api-a.fantom.network/graphql',
+                    http: 'https://1ae0-2001-8a0-6a4d-6000-b075-1099-4903-40da.eu.ngrok.io/graphql',
+                    // http: 'https://a8ee-2001-8a0-6a4d-6000-41d3-eb46-bbac-21e7.eu.ngrok.io/graphql', // http://localhost:7373/graphql
                     // for subscriptions
                     ws: '',
                 },
-                {
-                    http: 'https://artion-api-b.fantom.network/graphql',
-                    // for subscriptions
-                    ws: '',
-                },
-                {
-                    http: 'https://artion-api-c.fantom.network/graphql',
-                    // for subscriptions
-                    ws: '',
-                },
+                // {
+                //     http: 'https://artion-api-a.fantom.network/graphql',
+                //     // for subscriptions
+                //     ws: '',
+                // },
+                // {
+                //     http: 'https://a8ee-2001-8a0-6a4d-6000-41d3-eb46-bbac-21e7.eu.ngrok.io/graphql', // http://localhost:7373/graphql
+                //     // for subscriptions
+                //     ws: '',
+                // },
+                // {
+                //     http: 'https://artion-api-b.fantom.network/graphql',
+                //     // for subscriptions
+                //     ws: '',
+                // },
+                // {
+                //     http: 'https://artion-api-c.fantom.network/graphql',
+                //     // for subscriptions
+                //     ws: '',
+                // },
             ],
             // index into providers array of default provider or 'random' - takes index randomly
             defaultProviderIndex: 'random',
@@ -42,36 +53,37 @@ let appConfig = {
         fantom: {
             // list of providers. if one of them is unavailable, another is randomly picked
             providers: [
+
                 {
                     http: 'https://xapi-nodea.fantom.network/',
                     // for subscriptions
                     ws: '',
                 },
-                {
-                    http: 'https://xapi-nodeb.fantom.network/',
-                    // for subscriptions
-                    ws: '',
-                },
-                {
-                    http: 'https://xapi-nodec.fantom.network/',
-                    // for subscriptions
-                    ws: '',
-                },
-                {
-                    http: 'https://xapi-noded.fantom.network/',
-                    // for subscriptions
-                    ws: '',
-                },
-                {
-                    http: 'https://xapi-nodee.fantom.network/',
-                    // for subscriptions
-                    ws: '',
-                },
-                {
-                    http: 'https://xapi-nodef.fantom.network/',
-                    // for subscriptions
-                    ws: '',
-                },
+                // {
+                //     http: 'https://xapi-nodeb.fantom.network/',
+                //     // for subscriptions
+                //     ws: '',
+                // },
+                // {
+                //     http: 'https://xapi-nodec.fantom.network/',
+                //     // for subscriptions
+                //     ws: '',
+                // },
+                // {
+                //     http: 'https://xapi-noded.fantom.network/',
+                //     // for subscriptions
+                //     ws: '',
+                // },
+                // {
+                //     http: 'https://xapi-nodee.fantom.network/',
+                //     // for subscriptions
+                //     ws: '',
+                // },
+                // {
+                //     http: 'https://xapi-nodef.fantom.network/',
+                //     // for subscriptions
+                //     ws: '',
+                // },
             ],
             // index into providers array of default provider or 'random' - takes index randomly
             defaultProviderIndex: 'random',
@@ -103,10 +115,10 @@ let appConfig = {
     // use hash in address
     routerHashMode: false,
     // Opera chain id
-    chainId: '1666600000', //'0xfa',
+    chainId: '0x6357D2E0', //'1666700000', //'0xfa',
     // JSON-RPC endpointAdd
     // rpc: 'https://rpcapi.fantom.network/',
-    rpc: 'https://api.harmony.one', //'https://rpc.ftm.tools/',
+    rpc: 'https://api.s0.b.hmny.io', //'https://api.harmony.one', //'https://rpc.ftm.tools/',
     // used in links pointing to fantom explorer
     explorerUrl: 'https://explorer.harmony.one/', //'https://ftmscan.com/',
     // used in links pointing to validators

@@ -71,8 +71,8 @@ export default {
         return {
             ftmToken: {},
             wftmToken: {},
-            tokenFrom: { label: 'FTM' },
-            tokenTo: { label: 'wFTM' },
+            tokenFrom: { label: 'ONE' },
+            tokenTo: { label: 'wONE' },
             value: '',
             tx: {},
             txStatus: '',
@@ -82,7 +82,7 @@ export default {
 
     computed: {
         wrap() {
-            return this.tokenFrom.label === 'FTM';
+            return this.tokenFrom.label === 'ONE';
         },
 
         buttonLabel() {
@@ -109,7 +109,7 @@ export default {
     methods: {
         async setTokens() {
             const wftmToken = await getPayTokenWithPrice(WFTMContract);
-
+            console.log('wftmToken', WFTMContract, wftmToken);
             this.wftmToken = {
                 decimals: wftmToken.decimals,
                 price: wftmToken.origPrice,
@@ -119,7 +119,8 @@ export default {
 
             this.ftmToken = {
                 ...this.wftmToken,
-                label: 'FTM',
+                // FEGLOFF CHANGE
+                label: 'ONE', //FTM',
             };
 
             await this.setBalances();
@@ -129,6 +130,7 @@ export default {
         },
 
         async setBalances() {
+            console.log('setBalances WALLET ADDRESS', this.walletAddress, WFTMContract);
             const data = await Promise.all([
                 getFTMBalance(this.walletAddress),
                 getErc20TokenBalance(this.walletAddress, WFTMContract),

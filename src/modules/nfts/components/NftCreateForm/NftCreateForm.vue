@@ -176,8 +176,11 @@ export default {
 
     async created() {
         let mintableBy = this.$wallet.account || '0x0000000000000000000000000000000000000000';
+        console.log('wallet', this.$wallet);
+        console.log('wallet account', this.$wallet.account);
         console.log('loading collections mintable by', mintableBy);
         const collections = await getCollections({ first: 5000 }, null, mintableBy);
+        console.log('COLLECTION LIST', { collections });
         this.collections = collections.edges.map(edge => {
             return {
                 label: edge.node.name,
@@ -207,6 +210,7 @@ export default {
 
         async collectionValidator(_collectionId) {
             const estimation = await this.getEstimation(_collectionId, 1000);
+            console.log('ESTIMATION RESULT', _collectionId, estimation);
             console.log('collectionValidator', _collectionId, 'estimation error:', estimation.error);
             await this.setFee(estimation.platformFee);
             return estimation.error != null;
@@ -409,12 +413,14 @@ export default {
          * @return {Promise<Object>}
          */
         getEstimation(collectionId, royalty = 0) {
-            return estimateMintFeeGas(
+            // FEGLOFF https://minter.artion.io/default/access/minter/estimation.json
+            const result = estimateMintFeeGas(
                 this.$wallet.account || '0x0000000000000000000000000000000000000001',
                 collectionId,
                 'https://minter.artion.io/default/access/minter/estimation.json',
                 royalty
             );
+            return result;
         },
 
         async getMintedTokenId(txHash) {

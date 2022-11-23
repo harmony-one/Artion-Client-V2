@@ -10,6 +10,7 @@ import { compareAddresses } from '@/utils/address.js';
  */
 export async function getPayToken(address, payTokens) {
     /** @type {PayToken} */
+    console.log('FUNCION getPayTokens', address, payTokens);
     const payToken = (payTokens || (await PAY_TOKENS())).find(token => compareAddresses(token.address, address));
 
     return payToken ? { ...payToken } : null;

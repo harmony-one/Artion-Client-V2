@@ -4,7 +4,8 @@ import web3Utils from 'web3-utils';
 
 // DEFAULT_GAS_LIMIT represents the maximum amount of gas we are willing
 // to pay for the DeFi calls.
-const DEFAULT_GAS_LIMIT = '0x2dc6c0';
+// FEGLOFF CHANGE => GAS LIMIT 600000
+const DEFAULT_GAS_LIMIT = '0x927c0'; // '0x2dc6c0';
 
 // ZERO_AMOUNT represents zero amount transferred on some calls.
 const ZERO_AMOUNT = process.env.UE_APP_ZERO_AMOUNT;

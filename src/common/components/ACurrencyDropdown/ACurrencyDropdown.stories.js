@@ -27,6 +27,13 @@ export const Currencies = () => ({
         return {
             currencies: [
                 {
+                    address: process.env.VUE_APP_HARMONY_WRAPPED_ONE_CONTRACT_ADDRESS,
+                    label: 'wONE',
+                    img: '/img/WFTM.png',
+                    price: 1,
+                    value: 'wone',
+                },
+                {
                     address: '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
                     label: 'wFTM',
                     img: '/img/WFTM.png',
@@ -64,6 +71,13 @@ export const TokenSelected = () => ({
     data() {
         return {
             currencies: [
+                {
+                    address: process.env.VUE_APP_HARMONY_WRAPPED_ONE_CONTRACT_ADDRESS,
+                    label: 'wONE',
+                    img: '/img/WFTM.png',
+                    price: 1,
+                    value: 'wone',
+                },
                 {
                     address: '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
                     label: 'wFTM',
