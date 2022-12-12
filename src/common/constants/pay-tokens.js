@@ -1,6 +1,6 @@
 // import { getDefiTokens } from '@/modules/wallet/queries/defi-tokens.js';
 import { bFromTokenValue } from '@/utils/big-number.js';
-import { getPayTokens } from '@/modules/nfts/queries/pay-tokens.js';
+// import { getPayTokens } from '@/modules/nfts/queries/pay-tokens.js';
 import { clone } from 'fantom-vue-components/src/utils';
 
 /**
@@ -23,7 +23,7 @@ const PAY_TOKEN_IMAGES = {
     dai: '/img/pay-tokens/DAI.png',
 };
 
-// FEGLOFF CHANGE 
+// FEGLOFF CHANGE
 export const WFTMContract = process.env.VUE_APP_HARMONY_WRAPPED_ONE_CONTRACT_ADDRESS; //'0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83';
 
 let PT = [];
@@ -51,7 +51,30 @@ function getTokenFractionDigits(token) {
  * @return {PayToken[]}
  */
 async function fetchPayTokens() {
-    const pt = await getPayTokens();
+    // FEGLOFF await getPayTokens()
+    const pt = [
+        {
+            symbol: 'WONE',
+            price: '1',
+            contract: '0x04068da6c83afcfa0e13ba15a6696662335d5b75',
+        },
+        {
+            symbol: 'WONE',
+            price: '1',
+            contract: '0x049d68029688eabf473097a2fc38ef61633a3c7a',
+        },
+        {
+            symbol: 'WONE',
+            price: '1',
+            contract: '0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e',
+        },
+        {
+            symbol: 'WONE',
+            price: '1',
+            contract: '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
+        },
+    ];
+    // const pt = await getPayTokens();
     const payTokens = [];
     console.log('pay-tokens fetchPayTokens', pt);
     pt.forEach(t => {

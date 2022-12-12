@@ -115,9 +115,11 @@ function createNFTWithRoyalty(toAddress, tokenUri, amount, collectionAddress, ro
         "stateMutability": "payable",
         "type": "function"
     }
-
-    const encodedAbi = web3Client.eth.abi.encodeFunctionCall(abi,[toAddress, tokenUri, royaltyRecipient, royaltyValue])
-
+    console.log('artion-contract-utils - createNFTWithRoyalty', abi, toAddress, tokenUri, royaltyRecipient, royaltyValue );
+    
+    const encodedAbi = web3Client.eth.abi.encodeFunctionCall(abi,[toAddress, tokenUri, royaltyRecipient, royaltyValue]);
+    console.log('artion-contract-utils - createNFTWithRoyalty - encoded + value', encodedAbi, web3Client.utils.numberToHex(amount));
+    // const encodedAbi = web3Client.eth.abi.encodeFunctionCall(abi,['one1wpcfv99lnt2mh2ccugjyq3k53u3559vrnzqtk6', tokenUri, 'one1wpcfv99lnt2mh2ccugjyq3k53u3559vrnzqtk6', royaltyValue])
     // return tx object
     return {
         from: undefined,

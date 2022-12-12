@@ -248,7 +248,7 @@ export default {
             const val = _data.values;
 
             this.collection = this.collections.filter(col => col.value === val.collectionId)[0];
-
+            console.log('NftCreateForm - onSubmit', this.collection);
             const _metadata = {
                 name: val.name,
                 description: val.description,
@@ -274,7 +274,7 @@ export default {
             this.progressMessage = this.$t('nftcreate.estimatingFeeGas');
             const royalty = this.getRoyalty();
             const estimation = await this.getEstimation(val.collectionId, royalty);
-            console.log('estimation', estimation);
+            console.log('**** estimation ****', estimation);
             if (estimation.error != null) {
                 console.error('estimateMintFeeGas (server estimation) fail', estimation);
                 notifications.add({
@@ -307,7 +307,16 @@ export default {
                 text: this.$t('nftcreate.signMint'),
             });
             const web3 = new Web3();
-            this.tx = contracts.createNFTWithRoyalty(
+            console.log('BEFORE create transaction',
+                this.$wallet.account,
+                tokenUri,
+                estimation.platformFee,
+                val.collectionId,
+                this.$wallet.account, // royalty recipient
+                royalty,
+                web3
+            );
+            this.tx = await contracts.createNFTWithRoyalty(
                 this.$wallet.account, // owner of the created token
                 tokenUri,
                 estimation.platformFee,
@@ -316,6 +325,7 @@ export default {
                 royalty,
                 web3
             );
+            console.log('AFTER await contracts.createNFTWithRoyalty', this.tx);
         },
 
         async onMintTransactionStatus(payload) {

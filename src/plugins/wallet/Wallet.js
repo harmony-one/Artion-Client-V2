@@ -73,7 +73,7 @@ export class Wallet {
         // return this.wallet ? await this.wallet.signTransaction(tx, address) : '';
         let txHash = '';
         let ok = false;
-
+        console.log('Wallet.js signTransaction ', tx);
         if (this.wallet) {
             txHash = await this.wallet.signTransaction(clone(tx), address);
 
@@ -277,7 +277,7 @@ export class Wallet {
             'account.txCount',
             fantomApolloClient
         );
-
+        console.log('Wallet.js getNonce', nonce);
         return inHexFormat ? nonce : parseInt(nonce, 16);
     }
 
@@ -300,7 +300,7 @@ export class Wallet {
             fantomApolloClient
         );
         // FEGLOFF CHANGE
-        console.log('getGasPrice - Wallet.js',gasPrice);
+        console.log('getGasPrice - Wallet.js', gasPrice);
         // gasPrice * 1.2
         gasPrice = toHex(toBigNumber(gasPrice).multipliedBy(1.2));
 
@@ -329,7 +329,7 @@ export class Wallet {
             fantomApolloClient,
             silent
         );
-
+        console.log('Wallet.js - estimateGas', estimateGas);
         return estimateGas;
     }
 
